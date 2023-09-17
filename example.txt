@@ -1,0 +1,6 @@
+X0: ADD X1, XZR, XZR
+X4: ADDI X2, [XZR, #6]
+X8: ADDI X1, [X1, #5]
+X12: SUBI X2, [X2, #1]
+X16: CBNZ X2, #-2
+X20: ADD X4, X6, X8
