@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import List, Union, TypeVar
 
 REGISTERS = [0] * 32
 MEMORY = [0] * 256
