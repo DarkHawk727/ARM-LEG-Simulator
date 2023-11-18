@@ -1,0 +1,4 @@
+X0: ADDI X1, [X31, #49]
+X4: STUR X1, [X31, #1]
+X8: STUR X1, [X31, #2]
+X12: LDUR X2, [X31, #1]
