@@ -10,7 +10,6 @@
 ----------------------------------------------------------
 python pseudo-ARM program simulator
 </pre>
-[![PyPI](https://img.shields.io/pypi/v/quaeso.svg)](https://www.example.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 </div>
 This is a Python program to "simulate" the subset of the subset of ARM we use in <em>CS 251: Computer Organization and Design</em>. The word simulate is used loosely as this program doesn't execute the instructions how a real CPU would, its behaviorally? equivalent to it.
