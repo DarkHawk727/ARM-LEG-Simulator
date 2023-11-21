@@ -31,9 +31,16 @@ This is a Python program to "simulate" the subset of the subset of ARM we use in
 │   ├── d_format.py
 │   ├── i_format.py
 │   ├── instruction.py
+│   ├── nop.py
 │   ├── opcodes.py
 │   └── r_format.py
 ├── tests/
+│   ├── examples/
+│   │   ├── example1_out.txt
+│   │   ├── example1.txt
+│   │   ├── example2.txt
+│   │   ├── example3.txt
+│   │   └── loads_and_stores.txt
 │   ├── instruction_tests/
 │   │   ├── load.py
 │   │   ├── store.py
@@ -45,11 +52,13 @@ This is a Python program to "simulate" the subset of the subset of ARM we use in
 │       └── test2.txt
 ├── .gitignore
 ├── instruction_documentation.md
-└── readme.md
+├── LICENSE
+├── readme.md
+└── requirements.txt
 ```
 
 ## Installation
-> :warning: This program requires `python <3.10`.
+> :warning: This program requires `python >=3.10`.
 
 Clone the repository
 

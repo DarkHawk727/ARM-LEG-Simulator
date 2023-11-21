@@ -16,3 +16,4 @@ class Opcode(Enum):
     AND = auto()
     ORR = auto()
     EOR = auto()
+    NOP = auto()
