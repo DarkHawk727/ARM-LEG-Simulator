@@ -20,6 +20,9 @@ def run_arm_program(file_path, print_option, max_iterations):
         current_instruction = cpu.registers[cpu.program_counter]
         num_iterations += 1
 
+    if num_iterations == max_iterations:
+        print("Maximum iterations reached! The program might not have completed.")
+
 
 def main():
     parser = argparse.ArgumentParser(description="ARM-LEG Program Runner")
