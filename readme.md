@@ -23,8 +23,8 @@ This is a Python program to "simulate" the subset of the subset of ARM we use in
 │   └── utils.py
 ├── components/
 │   ├── cpu.py
-│   ├── register_file.py
-│   └── data_memory.py
+│   ├── data_memory.py
+│   └── register_file.py
 ├── instructions/
 │   ├── b_format.py
 │   ├── cb_format.py
@@ -36,20 +36,13 @@ This is a Python program to "simulate" the subset of the subset of ARM we use in
 │   └── r_format.py
 ├── tests/
 │   ├── examples/
-│   │   ├── example1_out.txt
-│   │   ├── example1.txt
-│   │   ├── example2.txt
-│   │   ├── example3.txt
-│   │   └── loads_and_stores.txt
-│   ├── instruction_tests/
-│   │   ├── load.py
-│   │   ├── store.py
-│   │   ├── arithmetic.py
-│   │   └── branches.py
-│   └── parse_tests/
-│       ├── test0.txt
-│       ├── test1.txt
-│       └── test2.txt
+│   │   ├── example_1.txt
+│   │   ├── example_2.txt
+│   │   └── example_3.txt
+│   ├── test_arithmetic_operations.py
+│   ├── test_branching.py
+│   ├── test_load_store.py
+│   └── test_parsing_instructions.py
 ├── .gitignore
 ├── instruction_documentation.md
 ├── LICENSE
@@ -92,11 +85,11 @@ The `-m` option will set a max-iterations count so that in the case of an infini
 
 ## Current Limitations
 
- - ~~Doesn't support X31 immutability.~~
- - Doesn't support X31 aliasing with XZR.
- - Doesn't support comments?
- - Need to test: `STUR`, `LDUR`, `CBZ`, and `B`
- - Programs must be at most 31 instructions long (Just 31 stores or smth) since they are stored in the registers (ig take CS450 to solve this)
+- ~~Doesn't support X31 immutability.~~
+- Doesn't support X31 aliasing with XZR.
+- Doesn't support comments?
+- Need to test: `STUR`, `LDUR`, `CBZ`, and `B`
+- Programs must be at most 31 instructions long (Just 31 stores or smth) since they are stored in the registers (ig take CS450 to solve this)
 
 ## Contributing
 

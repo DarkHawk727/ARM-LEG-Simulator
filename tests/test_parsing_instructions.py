@@ -1,16 +1,16 @@
 import pytest
+from utils import parse_pseudocode, tokenize
 
 from instructions.b_format import UnconditionalBranch
-from instructions.cb_format import BranchOnZero, BranchOnNonZero
+from instructions.cb_format import BranchOnNonZero, BranchOnZero
 from instructions.d_format import LoadWord, StoreWord
 from instructions.i_format import AddImmediate, SubImmediate
-from instructions.r_format import Add, Sub, LeftShift, RightShift, Orr, And, Xor
 from instructions.nop import NoOperation
-from utils import tokenize, parse_pseudocode
+from instructions.r_format import Add, And, LeftShift, Orr, RightShift, Sub, Xor
 
 
 class ParseTest:
-    def test_tokenize(self):
+    def test_tokenize(self) -> None:
         test_cases = [
             ("X0: ADD X1, X3, X4", [0, "ADD", 1, 3, 4]),
             ("X25: SUB X8, X13, X1", [25, "SUB", 8, 13, 1]),
@@ -36,9 +36,8 @@ class ParseTest:
         for input_str, expected_output in test_cases:
             assert tokenize(input_str) == expected_output
 
-    def test_parse_pseudocode(self):
+    def test_parse_pseudocode(self) -> None:
         test_cases = [
-            # Modified test cases based on the provided test_tokenize cases
             ("X0: ADD X1, X3, X4", (0, Add(rn=1, rd=3, rm=4))),
             ("X25: SUB X8, X13, X1", (25, Sub(rn=8, rd=13, rm=1))),
             ("X3: LSL X7, X3, X14", (3, LeftShift(rn=7, rd=3, rm=14))),
@@ -65,6 +64,7 @@ class ParseTest:
             assert parse_pseudocode(input_str) == expected_output
 
     # Test for exceptions
-    def test_unknown_instruction(self):
+    def test_unknown_instruction(self) -> None:
         with pytest.raises(ValueError):
-            parse_pseudocode("#10, UNKNOWN 5")
+            parse_pseudocode("X10: HUH X3 X3 X4")
+            parse_pseudocode("Not even close!")
