@@ -1,9 +1,8 @@
 from abc import ABC, abstractmethod
 
-from opcodes import Opcode
-
-from components.data_memory import DataMemory
-from components.register_file import RegisterFile
+from arm_leg.components.data_memory import DataMemory
+from arm_leg.components.register_file import RegisterFile
+from arm_leg.instructions.opcodes import Opcode
 
 
 class DFormatInstruction(ABC):

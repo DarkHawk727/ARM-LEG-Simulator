@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from opcodes import Opcode
+from arm_leg.instructions.opcodes import Opcode
 
 
 class BFormatInstruction(ABC):

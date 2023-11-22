@@ -1,22 +1,23 @@
-from instructions.instruction import Instruction
-from instructions.b_format import UnconditionalBranch
-from instructions.cb_format import BranchOnZero, BranchOnNonZero
-from instructions.d_format import LoadWord, StoreWord
-from instructions.i_format import AddImmediate, SubImmediate
-from instructions.r_format import Add, Sub, LeftShift, RightShift, Orr, And, Xor
 from typing import List, Tuple
-from components.cpu.py import CPU
+
+from arm_leg.components.central_processing_unit import CPU
+from arm_leg.instructions.b_format import UnconditionalBranch
+from arm_leg.instructions.cb_format import BranchOnNonZero, BranchOnZero
+from arm_leg.instructions.d_format import LoadWord, StoreWord
+from arm_leg.instructions.i_format import AddImmediate, SubImmediate
+from arm_leg.instructions.instruction import Instruction
+from arm_leg.instructions.r_format import Add, And, LeftShift, Orr, RightShift, Sub, Xor
 
 
 def tokenize(inp: str) -> List[str | int]:
-    stripped = inp.translate({ord(i):None for i in "#,:X[]"}).split(" ")
+    stripped = inp.translate({ord(i): None for i in "#,:X[]"}).split(" ")
     return [int(part) if i != 1 else part for i, part in enumerate(stripped)]
 
 
 def parse_pseudocode(inp: str) -> Tuple[int, Instruction]:
     tokenized = tokenize(inp)
 
-    # Define a mapping from instruction names to functions or constructors
+    # Define a mapping from instruction names to constructors
     instruction_map = {
         "B": lambda args: UnconditionalBranch(br_address=args[0]),
         "CBZ": lambda args: BranchOnZero(rt=args[0], br_address=args[1]),

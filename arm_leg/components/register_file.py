@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from typing import List, Union
-from instructions.instruction import Instruction
+from arm_leg.instructions.instruction import Instruction
 
 MemoryValue = Union[int, Instruction]
 

@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-from components.register_file import RegisterFile
-from opcodes import Opcode
+from arm_leg.components.register_file import RegisterFile
+from arm_leg.instructions.opcodes import Opcode
 
 
 class RFormatInstruction(ABC):

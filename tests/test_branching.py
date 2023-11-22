@@ -1,8 +1,8 @@
 import pytest
 
-from components.cpu import cpu
-from instructions.b_format import UnconditionalBranch
-from instructions.cb_format import BranchOnNonZero, BranchOnZero
+from arm_leg.components.central_processing_unit import CPU
+from arm_leg.instructions.b_format import UnconditionalBranch
+from arm_leg.instructions.cb_format import BranchOnNonZero, BranchOnZero
 
 
 class BranchTest:

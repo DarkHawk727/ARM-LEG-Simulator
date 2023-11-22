@@ -2,8 +2,7 @@ from __future__ import annotations
 
 from typing import Protocol
 
-from components.register_file import RegisterFile
-from opcodes import Opcode
+from arm_leg.instructions.opcodes import Opcode
 
 
 class Instruction(Protocol):

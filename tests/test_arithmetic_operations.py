@@ -1,8 +1,8 @@
 import pytest
 
-from components.cpu import CPU
-from instructions.i_format import AddImmediate, SubImmediate
-from instructions.r_format import Add, And, LeftShift, Orr, RightShift, Sub, Xor
+from arm_leg.components.central_processing_unit import CPU
+from arm_leg.instructions.i_format import AddImmediate, SubImmediate
+from arm_leg.instructions.r_format import Add, And, LeftShift, Orr, RightShift, Sub, Xor
 
 
 class ArithmeticTest:

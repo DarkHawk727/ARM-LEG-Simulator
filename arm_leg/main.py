@@ -1,8 +1,8 @@
 import argparse
-from components.cpu import CPU
-from instructions.instruction import Instruction
-from instructions.nop import NoOperation
-from utils import read_program_from_file
+
+from arm_leg.utils import read_program_from_file
+
+from arm_leg.components.central_processing_unit import CPU
 
 
 def run_arm_program(file_path, print_option, max_iterations):

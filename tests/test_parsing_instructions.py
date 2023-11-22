@@ -1,12 +1,12 @@
 import pytest
-from utils import parse_pseudocode, tokenize
+from arm_leg.utils import parse_pseudocode, tokenize
 
-from instructions.b_format import UnconditionalBranch
-from instructions.cb_format import BranchOnNonZero, BranchOnZero
-from instructions.d_format import LoadWord, StoreWord
-from instructions.i_format import AddImmediate, SubImmediate
-from instructions.nop import NoOperation
-from instructions.r_format import Add, And, LeftShift, Orr, RightShift, Sub, Xor
+from arm_leg.instructions.b_format import UnconditionalBranch
+from arm_leg.instructions.cb_format import BranchOnNonZero, BranchOnZero
+from arm_leg.instructions.d_format import LoadWord, StoreWord
+from arm_leg.instructions.i_format import AddImmediate, SubImmediate
+from arm_leg.instructions.nop import NoOperation
+from arm_leg.instructions.r_format import Add, And, LeftShift, Orr, RightShift, Sub, Xor
 
 
 class ParseTest:

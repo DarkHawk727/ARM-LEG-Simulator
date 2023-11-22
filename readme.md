@@ -17,33 +17,30 @@ This is a Python program to "simulate" the subset of the subset of ARM we use in
 ## Program Structure
 ```
 .
-├── ARM-LEG/
+├── arm_leg/
+│   ├── components/
+│   │   ├── cpu.py
+│   │   ├── data_memory.py
+│   │   └── register_file.py
+│   ├── instructions/
+│   │   ├── b_format.py
+│   │   ├── cb_format.py
+│   │   ├── d_format.py
+│   │   ├── i_format.py
+│   │   ├── instruction.py
+│   │   ├── nop.py
+│   │   ├── opcodes.py
+│   │   └── r_format.py
 │   ├── __init__.py
 │   ├── main.py
 │   └── utils.py
-├── components/
-│   ├── cpu.py
-│   ├── data_memory.py
-│   └── register_file.py
-├── instructions/
-│   ├── b_format.py
-│   ├── cb_format.py
-│   ├── d_format.py
-│   ├── i_format.py
-│   ├── instruction.py
-│   ├── nop.py
-│   ├── opcodes.py
-│   └── r_format.py
 ├── tests/
-│   ├── examples/
-│   │   ├── example_1.txt
-│   │   ├── example_2.txt
-│   │   └── example_3.txt
 │   ├── test_arithmetic_operations.py
 │   ├── test_branching.py
 │   ├── test_load_store.py
 │   └── test_parsing_instructions.py
 ├── .gitignore
+├── conftest.py
 ├── instruction_documentation.md
 ├── LICENSE
 ├── readme.md

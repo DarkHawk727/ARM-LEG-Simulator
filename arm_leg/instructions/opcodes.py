@@ -15,5 +15,5 @@ class Opcode(Enum):
     RSL = auto()
     AND = auto()
     ORR = auto()
-    EOR = auto()
+    XOR = auto()
     NOP = auto()

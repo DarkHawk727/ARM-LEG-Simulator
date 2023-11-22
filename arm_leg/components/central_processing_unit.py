@@ -1,12 +1,12 @@
-from register_file import RegisterFile
-from data_memory import DataMemory
 from typing import Literal
+
 from tabulate import tabulate
 
-from instructions.b_format import BFormatInstruction
-from instructions.cb_format import CBFormatInstruction
-from instructions.d_format import DFormatInstruction
-
+from arm_leg.components.data_memory import DataMemory
+from arm_leg.components.register_file import RegisterFile
+from arm_leg.instructions.b_format import BFormatInstruction
+from arm_leg.instructions.cb_format import CBFormatInstruction
+from arm_leg.instructions.d_format import DFormatInstruction
 
 
 class CPU:

@@ -1,7 +1,7 @@
 import pytest
 
-from components.cpu import CPU
-from instructions.d_format import LoadWord, StoreWord
+from arm_leg.components.central_processing_unit import CPU
+from arm_leg.instructions.d_format import LoadWord, StoreWord
 
 
 class LoadStoreTests:
