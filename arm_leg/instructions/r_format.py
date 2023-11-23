@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 
 from arm_leg.components.register_file import RegisterFile
+from arm_leg.instructions.instruction import Instruction
 from arm_leg.instructions.opcodes import Opcode
 
 
@@ -17,6 +18,13 @@ class RFormatInstruction(ABC):
 
     def __str__(self) -> str:
         return f"{self._opcode.name} X{self._rn}, X{self._rd}, X{self._rm}"
+
+    def __eq__(self, other: Instruction) -> bool:
+        if not (self._opcode == other._opcode):
+            return False
+        return (self._rn == other._rn and
+                self._rd == other._rd and
+                self._rm == other._rm)
 
     @abstractmethod
     def execute(self, registers: RegisterFile) -> None:
@@ -65,8 +73,8 @@ class Orr(RFormatInstruction):
         registers[self._rd] = registers[self._rn] | registers[self._rm]
 
 
-class Xor(RFormatInstruction):
-    _opcode = Opcode.XOR
+class Eor(RFormatInstruction):
+    _opcode = Opcode.EOR
 
     def execute(self, registers: RegisterFile) -> None:
         registers[self._rd] = registers[self._rn] ^ registers[self._rm]

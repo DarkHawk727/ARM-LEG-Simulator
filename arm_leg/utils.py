@@ -6,7 +6,8 @@ from arm_leg.instructions.cb_format import BranchOnNonZero, BranchOnZero
 from arm_leg.instructions.d_format import LoadWord, StoreWord
 from arm_leg.instructions.i_format import AddImmediate, SubImmediate
 from arm_leg.instructions.instruction import Instruction
-from arm_leg.instructions.r_format import Add, And, LeftShift, Orr, RightShift, Sub, Xor
+from arm_leg.instructions.nop import NoOperation
+from arm_leg.instructions.r_format import Add, And, Eor, LeftShift, Orr, RightShift, Sub
 
 
 def tokenize(inp: str) -> List[str | int]:
@@ -28,11 +29,12 @@ def parse_pseudocode(inp: str) -> Tuple[int, Instruction]:
         "RSL": lambda args: RightShift(rn=args[0], rd=args[1], rm=args[2]),
         "ORR": lambda args: Orr(rn=args[0], rd=args[1], rm=args[2]),
         "AND": lambda args: And(rn=args[0], rd=args[1], rm=args[2]),
-        "XOR": lambda args: Xor(rn=args[0], rd=args[1], rm=args[2]),
+        "EOR": lambda args: Eor(rn=args[0], rd=args[1], rm=args[2]),
         "LDUR": lambda args: LoadWord(rn=args[0], rt=args[1], dt_address=args[2]),
         "STUR": lambda args: StoreWord(rn=args[0], rt=args[1], dt_address=args[2]),
-        "ADDI": lambda args: AddImmediate(rn=args[0], rt=args[1], dt_address=args[2]),
-        "SUBI": lambda args: SubImmediate(rn=args[0], rt=args[1], dt_address=args[2]),
+        "ADDI": lambda args: AddImmediate(rn=args[0], rd=args[1], constant=args[2]),
+        "SUBI": lambda args: SubImmediate(rn=args[0], rd=args[1], constant=args[2]),
+        "NOP": lambda _: NoOperation(),
     }
 
     address, instruction, *args = tokenized

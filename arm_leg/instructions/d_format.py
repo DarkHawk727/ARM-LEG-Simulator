@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 
 from arm_leg.components.data_memory import DataMemory
 from arm_leg.components.register_file import RegisterFile
+from arm_leg.instructions.instruction import Instruction
 from arm_leg.instructions.opcodes import Opcode
 
 
@@ -18,6 +19,15 @@ class DFormatInstruction(ABC):
 
     def __str__(self) -> str:
         return f"{self._opcode.name} X{self._rn} [X{self._rd}, #{self._constant}]"
+
+    def __eq__(self, other: Instruction) -> bool:
+        if not (self._opcode == other._opcode):
+            return False
+        return (
+            self._rn == other._rn
+            and self._rt == other._rt
+            and self._dt_address == other._dt_address
+        )
 
     @abstractmethod
     def execute(self, registers: RegisterFile, memory: DataMemory) -> None:

@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+from arm_leg.instructions.instruction import Instruction
 from arm_leg.instructions.opcodes import Opcode
 
 
@@ -13,6 +14,11 @@ class BFormatInstruction(ABC):
     def __str__(self) -> str:
         return f"{self._opcode.name} #{self._br_address}"
 
+    def __eq__(self, other: Instruction) -> bool:
+        if not (self._opcode == other._opcode):
+            return False
+        return self._br_address == other._br_address
+
     @abstractmethod
     def execute(self, program_counter: int) -> None:
         pass
@@ -20,5 +26,6 @@ class BFormatInstruction(ABC):
 
 class UnconditionalBranch(BFormatInstruction):
     _opcode = Opcode.B
+
     def execute(self, program_counter: int) -> None:
         program_counter += 4 * self._br_address
