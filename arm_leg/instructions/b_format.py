@@ -20,7 +20,7 @@ class BFormatInstruction(ABC):
         return self._br_address == other._br_address
 
     @abstractmethod
-    def execute(self, program_counter: int) -> None:
+    def execute(self, program_counter: int) -> int:
         pass
 
 
@@ -28,4 +28,4 @@ class UnconditionalBranch(BFormatInstruction):
     _opcode = Opcode.B
 
     def execute(self, program_counter: int) -> None:
-        program_counter += 4 * self._br_address
+        return program_counter + 4 * self._br_address

@@ -30,18 +30,18 @@ class CBFormatInstruction(ABC):
 class BranchOnZero(CBFormatInstruction):
     _opcode = Opcode.CBZ
 
-    def execute(self, registers: RegisterFile, program_counter: int) -> None:
+    def execute(self, registers: RegisterFile, program_counter: int) -> int:
         if registers[self._rt] == 0:
-            program_counter += 4 * self._br_address
+            return program_counter + 4 * self._br_address
         else:
-            program_counter += 4  # Is this necessary?
+            return program_counter + 4  # Is this necessary?
 
 
 class BranchOnNonZero(CBFormatInstruction):
     _opcode = Opcode.CBNZ
 
-    def execute(self, registers: RegisterFile, program_counter: int) -> None:
+    def execute(self, registers: RegisterFile, program_counter: int) -> int:
         if registers[self._rt] != 0:
-            program_counter += 4 * self._br_address
+            return program_counter + 4 * self._br_address
         else:
-            program_counter += 4  # Is this necessary?
+            return program_counter + 4  # Is this necessary?

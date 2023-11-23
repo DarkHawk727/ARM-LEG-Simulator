@@ -87,7 +87,7 @@ The `-m` option will set a max-iterations count so that in the case of an infini
 - Doesn't support comments?
 - ~~Need to add tests for all instructions~~
 - Programs must be at most 31 instructions long (Just 31 stores or smth) since they are stored in the registers (ig take CS450 to solve this)
-- Cannot parse `XOR` due to how `tokenize()` works.
+- ~~Cannot parse `XOR` due to how `tokenize()` works.~~
 
 ## Contributing
 

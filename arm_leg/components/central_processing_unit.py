@@ -25,9 +25,11 @@ class CPU:
             raise ValueError("Program counter jumped to integer!")
         else:
             if isinstance(current, BFormatInstruction):
-                current.execute(self.program_counter)
+                self.program_counter = current.execute(self.program_counter)
             elif isinstance(current, CBFormatInstruction):
-                current.execute(self.registers, self.program_counter)
+                self.program_counter = current.execute(
+                    self.registers, self.program_counter
+                )
             elif isinstance(current, DFormatInstruction):
                 current.execute(self.registers, self.memory)
                 self.program_counter += 4

@@ -1,5 +1,3 @@
-import pytest
-
 from arm_leg.components.central_processing_unit import CPU
 from arm_leg.instructions.b_format import UnconditionalBranch
 from arm_leg.instructions.cb_format import BranchOnNonZero, BranchOnZero
@@ -8,6 +6,7 @@ from arm_leg.instructions.cb_format import BranchOnNonZero, BranchOnZero
 def test_unconditional_branch() -> None:
     cpu = CPU()
     cpu.registers[0] = UnconditionalBranch(br_address=4)
+    cpu.execute_instruction()
 
     assert cpu.program_counter == 16
 
