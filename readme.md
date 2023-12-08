@@ -86,8 +86,20 @@ The `-m` option will set a max-iterations count so that in the case of an infini
 - Doesn't support X31 aliasing with XZR.
 - Doesn't support comments?
 - ~~Need to add tests for all instructions~~
-- Programs must be at most 31 instructions long (Just 31 stores or smth) since they are stored in the registers (ig take CS450 to solve this)
+- Programs must be at most 31 instructions long (Just 31 stores or smth) since they are stored in the registers (need to move them to memory)
 - ~~Cannot parse `XOR` due to how `tokenize()` works.~~
+
+## Future Improvements
+
+- Pipelining? This model of computation isn’t strictly required but could be useful for simulation purposes
+  - Stalls
+  - Flushes
+  - Branch Prediction
+- Code rearrangement?
+- Control unit with its signals
+- Having a diagram like in Markdeep to show the value of various components in the datapath.
+- Set-Associative and Direct-Mapped Caches?
+- Adding the binary number (highlighted by field) for each instruction
 
 ## Contributing
 
